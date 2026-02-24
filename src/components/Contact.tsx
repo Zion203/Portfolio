@@ -24,8 +24,8 @@ const contactInfo = [
     {
         icon: Phone,
         label: "DIRECT LINE",
-        value: "+91 9176391966",
-        href: "tel:+919176391966",
+        value: "+91 6379561596",
+        href: "tel:+916379561596",
         color: "var(--tva-teal)",
         colorDim: "var(--tva-teal-dim)",
     },
