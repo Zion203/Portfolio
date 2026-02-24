@@ -7,64 +7,64 @@ import { ArrowUpRight } from "lucide-react";
 
 const projects = [
     {
+        title: "Elever",
+        description:
+            "A premium e-commerce platform built for modern online retail. Features seamless product browsing, cart management, secure checkout, and responsive design across all devices.",
+        tech: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+        category: "FULL STACK",
+        highlight: "E-COMMERCE",
+        threatLevel: "OMEGA",
+        link: "https://elever-online.vercel.app/",
+    },
+    {
+        title: "Sarah",
+        description:
+            "An intelligent AI assistant currently in development. Uses advanced language models and smart memory management to deliver contextual, personalized interactions.",
+        tech: ["Python", "AI/ML", "LangChain", "React"],
+        category: "AI / ML",
+        highlight: "IN DEVELOPMENT",
+        threatLevel: "OMEGA",
+        link: "https://github.com/Zion203/Sarah",
+    },
+    {
+        title: "HoverNest",
+        description:
+            "A professional freelancing platform connecting clients with top talent. Built as a client project with polished UI, real-time features, and production-grade reliability.",
+        tech: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
+        category: "FULL STACK",
+        highlight: "FREELANCE PROJECT",
+        threatLevel: "ALPHA",
+        link: "https://www.hovernest.com/",
+    },
+    {
+        title: "D-Twin",
+        description:
+            "A mobile-first digital twin platform powered by AI. Creates intelligent digital replicas for monitoring, simulation, and predictive analysis in real time.",
+        tech: ["React Native", "AI/ML", "Node.js", "Vercel"],
+        category: "AI / MOBILE",
+        highlight: "DIGITAL TWIN",
+        threatLevel: "OMEGA",
+        link: "https://d-twinpro.vercel.app/",
+    },
+    {
+        title: "You Journal",
+        description:
+            "A personal journaling web app designed for mindful self-reflection. Clean, distraction-free interface with secure entries and an intuitive writing experience.",
+        tech: ["React", "Next.js", "Tailwind CSS", "Vercel"],
+        category: "FRONTEND",
+        highlight: "PERSONAL TOOL",
+        threatLevel: "BETA",
+        link: "https://mye-journal.vercel.app/",
+    },
+    {
         title: "Train Like a Trainer",
         description:
-            "Online Sports Learning Platform with 850K+ users. An expansive platform helping users build sports skills through tutorials, community engagement, and personalized progress tracking.",
+            "An online sports learning platform helping users build athletic skills through tutorials, community engagement, and personalized progress tracking.",
         tech: ["React", "Node.js", "MongoDB", "AWS"],
         category: "FULL STACK",
-        highlight: "850K+ USERS",
-        threatLevel: "OMEGA",
-        link: "#", // TODO: Add project link
-    },
-    {
-        title: "Feedback Personalized Video",
-        description:
-            "AI-powered video feedback system for personalized learning experiences with advanced analytics, real-time processing, and comprehensive reporting dashboards.",
-        tech: ["Python", "AI/ML", "Video Processing", "React"],
-        category: "AI / ML",
-        highlight: "AI-POWERED",
+        highlight: "CAPSTONE PROJECT",
         threatLevel: "ALPHA",
-        link: "#", // TODO: Add project link
-    },
-    {
-        title: "Google OAuth Integration",
-        description:
-            "Secure user authentication system with Google OAuth for seamless login experiences across multiple platforms. Enterprise-grade security with JWT tokens.",
-        tech: ["OAuth 2.0", "Node.js", "Express", "JWT"],
-        category: "BACKEND",
-        highlight: "ENTERPRISE AUTH",
-        threatLevel: "BETA",
-        link: "#", // TODO: Add project link
-    },
-    {
-        title: "RESTful API Backend",
-        description:
-            "Robust backend architecture with MongoDB integration, supporting high-traffic applications with optimal performance, caching, and load balancing.",
-        tech: ["Node.js", "Express", "MongoDB", "REST API"],
-        category: "BACKEND",
-        highlight: "HIGH TRAFFIC",
-        threatLevel: "BETA",
-        link: "#", // TODO: Add project link
-    },
-    {
-        title: "Real-time Communication",
-        description:
-            "WebSocket-based real-time messaging and notification system for enhanced user engagement with presence detection and typing indicators.",
-        tech: ["WebSocket", "Socket.io", "React", "Node.js"],
-        category: "FULL STACK",
-        highlight: "REAL-TIME",
-        threatLevel: "ALPHA",
-        link: "#", // TODO: Add project link
-    },
-    {
-        title: "AI Progress Tracking",
-        description:
-            "Intelligent progress tracking system using machine learning to provide personalized insights, adaptive recommendations, and visual analytics.",
-        tech: ["Python", "TensorFlow", "Analytics", "React"],
-        category: "AI / ML",
-        highlight: "ML-DRIVEN",
-        threatLevel: "OMEGA",
-        link: "#", // TODO: Add project link
+        link: "https://github.com/kalviumcommunity/S51_JesudasZion_Capstone_TrainLikeTrainer",
     },
 ];
 
@@ -90,8 +90,8 @@ function ProjectCard({
         >
             <a
                 href={project.link}
-                target={project.link !== "#" ? "_blank" : undefined}
-                rel={project.link !== "#" ? "noopener noreferrer" : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 <motion.div
                     className="tva-card p-7 h-full relative overflow-hidden group"
@@ -114,7 +114,7 @@ function ProjectCard({
                         transition={{ duration: 1.5, repeat: isHovered ? Infinity : 0 }}
                     />
 
-                    {/* Top row — category + threat level */}
+                    {/* Top row — category + arrow */}
                     <div className="relative flex items-start justify-between mb-5">
                         <div>
                             <span
@@ -165,7 +165,6 @@ function ProjectCard({
 
                     {/* Badges */}
                     <div className="relative flex items-center gap-2 mb-5">
-                        {/* Impact badge */}
                         <span
                             className="inline-flex items-center px-2.5 py-1 rounded-sm text-[0.55rem] font-semibold tracking-wider"
                             style={{
@@ -176,7 +175,6 @@ function ProjectCard({
                         >
                             ◆ {project.highlight}
                         </span>
-                        {/* Threat level */}
                         <span
                             className="inline-flex items-center px-2.5 py-1 rounded-sm text-[0.55rem] font-semibold tracking-wider"
                             style={{
@@ -190,7 +188,7 @@ function ProjectCard({
                         </span>
                     </div>
 
-                    {/* Equipment used (tech) */}
+                    {/* Tech stack */}
                     <div className="relative">
                         <div
                             className="text-[0.5rem] uppercase tracking-[0.2em] mb-2"

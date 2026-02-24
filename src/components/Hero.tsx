@@ -33,65 +33,61 @@ export default function Hero() {
                         transition={{ delay: 3.2 + i * 0.15, duration: 0.4 }}
                     >
                         <div
-                            className="w-2 h-2 rounded-full temporal-pulse"
+                            className="w-2 h-2 rounded-full"
                             style={{
                                 background: "var(--tva-amber)",
+                                boxShadow: "0 0 8px var(--tva-amber)",
                             }}
                         />
                         {/* Branch line going up or down */}
-                        <motion.div
+                        <div
                             className="absolute left-1/2 -translate-x-1/2"
                             style={{
                                 width: 1,
-                                height: 20 + Math.random() * 30,
+                                height: 20 + i * 8,
                                 background: `linear-gradient(${i % 2 === 0 ? "180deg" : "0deg"}, var(--tva-amber), transparent)`,
                                 top: i % 2 === 0 ? "100%" : "auto",
                                 bottom: i % 2 === 0 ? "auto" : "100%",
                                 opacity: 0.3,
                             }}
-                            initial={{ scaleY: 0 }}
-                            animate={{ scaleY: 1 }}
-                            transition={{ delay: 3.5 + i * 0.1, duration: 0.4 }}
                         />
                     </motion.div>
                 ))}
             </div>
 
-            {/* Floating temporal particles */}
+            {/* Floating temporal particles — reduced count */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {Array.from({ length: 25 }).map((_, i) => (
+                {Array.from({ length: 10 }).map((_, i) => (
                     <motion.div
                         key={i}
                         className="absolute rounded-full"
                         style={{
-                            width: Math.random() * 3 + 1,
-                            height: Math.random() * 3 + 1,
+                            width: 2,
+                            height: 2,
                             background:
-                                i % 4 === 0
-                                    ? "var(--tva-amber)"
-                                    : i % 4 === 1
-                                        ? "var(--tva-teal)"
-                                        : i % 4 === 2
-                                            ? "var(--tva-amber-bright)"
-                                            : "rgba(232, 220, 200, 0.15)",
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
+                                i % 3 === 0
+                                    ? "#FF6B00"
+                                    : i % 3 === 1
+                                        ? "#00E5A0"
+                                        : "rgba(232, 220, 200, 0.2)",
+                            left: `${10 + i * 9}%`,
+                            top: `${15 + i * 7}%`,
                         }}
                         animate={{
-                            y: [0, -40, 0],
-                            opacity: [0.1, 0.6, 0.1],
+                            y: [0, -30, 0],
+                            opacity: [0.15, 0.5, 0.15],
                         }}
                         transition={{
-                            duration: 4 + Math.random() * 5,
+                            duration: 5 + i * 0.8,
                             repeat: Infinity,
-                            delay: Math.random() * 4,
+                            delay: i * 0.6,
                             ease: "easeInOut",
                         }}
                     />
                 ))}
             </div>
 
-            {/* Radial glow */}
+            {/* Radial glow — static, no animation */}
             <div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full pointer-events-none"
                 style={{
@@ -165,10 +161,7 @@ export default function Hero() {
                         { label: "STATUS", value: "ACTIVE" },
                         { label: "THREAT", value: "MINIMAL" },
                     ].map((item) => (
-                        <div
-                            key={item.label}
-                            className="text-center"
-                        >
+                        <div key={item.label} className="text-center">
                             <div
                                 className="text-[0.5rem] tracking-[0.2em] uppercase mb-0.5"
                                 style={{

@@ -25,8 +25,17 @@ export default function Navbar() {
 
     return (
         <motion.nav
-            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? "tva-glass-strong py-2" : "py-4"
-                }`}
+            className={`fixed top-0 left-0 right-0 z-[100] ${scrolled ? "py-2" : "py-4"}`}
+            style={{
+                background: scrolled
+                    ? "rgba(13, 9, 7, 0.85)"
+                    : "transparent",
+                backdropFilter: scrolled ? "blur(12px)" : "none",
+                borderBottom: scrolled
+                    ? "1px solid rgba(255, 107, 0, 0.1)"
+                    : "1px solid transparent",
+                transition: "background 0.5s, backdrop-filter 0.5s, border-bottom 0.5s, padding 0.5s",
+            }}
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{
