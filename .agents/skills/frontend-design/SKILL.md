@@ -1,42 +1,49 @@
----
-name: frontend-design
-description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.
-license: Complete terms in LICENSE.txt
----
+Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.LicenseComplete terms in LICENSE.txtWeb Artifacts Builder
+To build powerful frontend claude.ai artifacts, follow these steps:
 
-This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
+Initialize the frontend repo using scripts/init-artifact.sh
+Develop your artifact by editing the generated code
+Bundle all code into a single HTML file using scripts/bundle-artifact.sh
+Display artifact to user
+(Optional) Test the artifact
 
-The user provides frontend requirements: a component, page, application, or interface to build. They may include context about the purpose, audience, or technical constraints.
+Stack: React 18 + TypeScript + Vite + Parcel (bundling) + Tailwind CSS + shadcn/ui
+Design & Style Guidelines
+VERY IMPORTANT: To avoid what is often referred to as "AI slop", avoid using excessive centered layouts, purple gradients, uniform rounded corners, and Inter font.
+Quick Start
+Step 1: Initialize Project
+Run the initialization script to create a new React project:
+bashbash scripts/init-artifact.sh <project-name>
+cd <project-name>
+This creates a fully configured project with:
 
-## Design Thinking
+✅ React + TypeScript (via Vite)
+✅ Tailwind CSS 3.4.1 with shadcn/ui theming system
+✅ Path aliases (@/) configured
+✅ 40+ shadcn/ui components pre-installed
+✅ All Radix UI dependencies included
+✅ Parcel configured for bundling (via .parcelrc)
+✅ Node 18+ compatibility (auto-detects and pins Vite version)
 
-Before coding, understand the context and commit to a BOLD aesthetic direction:
-- **Purpose**: What problem does this interface solve? Who uses it?
-- **Tone**: Pick an extreme: brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.
-- **Constraints**: Technical requirements (framework, performance, accessibility).
-- **Differentiation**: What makes this UNFORGETTABLE? What's the one thing someone will remember?
+Step 2: Develop Your Artifact
+To build the artifact, edit the generated files. See Common Development Tasks below for guidance.
+Step 3: Bundle to Single HTML File
+To bundle the React app into a single HTML artifact:
+bashbash scripts/bundle-artifact.sh
+This creates bundle.html - a self-contained artifact with all JavaScript, CSS, and dependencies inlined. This file can be directly shared in Claude conversations as an artifact.
+Requirements: Your project must have an index.html in the root directory.
+What the script does:
 
-**CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work - the key is intentionality, not intensity.
+Installs bundling dependencies (parcel, @parcel/config-default, parcel-resolver-tspaths, html-inline)
+Creates .parcelrc config with path alias support
+Builds with Parcel (no source maps)
+Inlines all assets into single HTML using html-inline
 
-Then implement working code (HTML/CSS/JS, React, Vue, etc.) that is:
-- Production-grade and functional
-- Visually striking and memorable
-- Cohesive with a clear aesthetic point-of-view
-- Meticulously refined in every detail
+Step 4: Share Artifact with User
+Finally, share the bundled HTML file in conversation with the user so they can view it as an artifact.
+Step 5: Testing/Visualizing the Artifact (Optional)
+Note: This is a completely optional step. Only perform if necessary or requested.
+To test/visualize the artifact, use available tools (including other Skills or built-in tools like Playwright or Puppeteer). In general, avoid testing the artifact upfront as it adds latency between the request and when the finished artifact can be seen. Test later, after presenting the artifact, if requested or if issues arise.
+Reference
 
-## Frontend Aesthetics Guidelines
-
-Focus on:
-- **Typography**: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics; unexpected, characterful font choices. Pair a distinctive display font with a refined body font.
-- **Color & Theme**: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
-- **Motion**: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.
-- **Spatial Composition**: Unexpected layouts. Asymmetry. Overlap. Diagonal flow. Grid-breaking elements. Generous negative space OR controlled density.
-- **Backgrounds & Visual Details**: Create atmosphere and depth rather than defaulting to solid colors. Add contextual effects and textures that match the overall aesthetic. Apply creative forms like gradient meshes, noise textures, geometric patterns, layered transparencies, dramatic shadows, decorative borders, custom cursors, and grain overlays.
-
-NEVER use generic AI-generated aesthetics like overused font families (Inter, Roboto, Arial, system fonts), cliched color schemes (particularly purple gradients on white backgrounds), predictable layouts and component patterns, and cookie-cutter design that lacks context-specific character.
-
-Interpret creatively and make unexpected choices that feel genuinely designed for the context. No design should be the same. Vary between light and dark themes, different fonts, different aesthetics. NEVER converge on common choices (Space Grotesk, for example) across generations.
-
-**IMPORTANT**: Match implementation complexity to the aesthetic vision. Maximalist designs need elaborate code with extensive animations and effects. Minimalist or refined designs need restraint, precision, and careful attention to spacing, typography, and subtle details. Elegance comes from executing the vision well.
-
-Remember: Claude is capable of extraordinary creative work. Don't hold back, show what can truly be created when thinking outside the box and committing fully to a distinctive vision.
+shadcn/ui components: https://ui.shadcn.com/docs/components

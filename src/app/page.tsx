@@ -1,47 +1,35 @@
 "use client";
 
-import { useState } from "react";
 import dynamic from "next/dynamic";
-import { AnimatePresence } from "framer-motion";
 
-const LoadingScreen = dynamic(() => import("@/components/LoadingScreen"), {
-    ssr: false,
-});
-const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
-    ssr: false,
-});
+const InteractiveGrid = dynamic(() => import("@/components/InteractiveGrid"), { ssr: false });
+const CrosshairCursor = dynamic(() => import("@/components/CrosshairCursor"), { ssr: false });
+const FloatingPixels = dynamic(() => import("@/components/FloatingPixels"), { ssr: false });
+const StatusRail = dynamic(() => import("@/components/StatusRail"), { ssr: false });
 const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: false });
-const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
-const About = dynamic(() => import("@/components/About"), { ssr: false });
-const Skills = dynamic(() => import("@/components/Skills"), { ssr: false });
-const Projects = dynamic(() => import("@/components/Projects"), { ssr: false });
-const Experience = dynamic(() => import("@/components/Experience"), {
-    ssr: false,
-});
-const TimelineGame = dynamic(() => import("@/components/TimelineGame"), {
-    ssr: false,
-});
-const Contact = dynamic(() => import("@/components/Contact"), { ssr: false });
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+const CoverSheet = dynamic(() => import("@/components/CoverSheet"), { ssr: false });
+const Brief = dynamic(() => import("@/components/Brief"), { ssr: false });
+const ProjectGallery = dynamic(() => import("@/components/ProjectGallery"), { ssr: false });
+const SpecTable = dynamic(() => import("@/components/SpecTable"), { ssr: false });
+const SectionCut = dynamic(() => import("@/components/SectionCut"), { ssr: false });
+const ParallelPractice = dynamic(() => import("@/components/ParallelPractice"), { ssr: false });
+const StampBlock = dynamic(() => import("@/components/StampBlock"), { ssr: false });
 
 export default function Home() {
-    const [isLoading, setIsLoading] = useState(true);
-
     return (
         <>
-            <AnimatePresence>
-                {isLoading && <LoadingScreen />}
-            </AnimatePresence>
-            <CustomCursor />
+            <InteractiveGrid />
+            <FloatingPixels />
+            <CrosshairCursor />
+            <StatusRail />
             <Navbar />
-            <Hero />
-            <About />
-            <Skills />
-            <Projects />
-            <Experience />
-            <TimelineGame />
-            <Contact />
-            <Footer />
+            <CoverSheet />
+            <Brief />
+            <ProjectGallery />
+            <SpecTable />
+            <SectionCut />
+            <ParallelPractice />
+            <StampBlock />
         </>
     );
 }
